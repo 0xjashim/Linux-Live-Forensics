@@ -18,7 +18,7 @@ Misc Useful Tools
 # Live Triage
 
 # System Information </br>
-`date` </br>  
+`date`</br>
 `uname –a`</br> 
 `hostname`</br>
 `cat /proc/version`</br>
