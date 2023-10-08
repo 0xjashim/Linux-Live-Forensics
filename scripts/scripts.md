@@ -5,7 +5,7 @@
 # Dumping Memory
 
 
-`dd if=/dev/kmem of=/root/kmem`
+`dd if=/dev/kmem of=/root/kmem` </br>
 `dd if=/dev/mem of=/root/mem`
 ​`sudo insmod ./lime.ko "path=./Linmen.mem format=raw"`
 ​
