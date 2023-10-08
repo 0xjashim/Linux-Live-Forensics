@@ -4,14 +4,11 @@
 
 # Dumping Memory
 
-
 `dd if=/dev/kmem of=/root/kmem` </br>
 `dd if=/dev/mem of=/root/mem` </br>
 ​`sudo insmod ./lime.ko "path=./Linmen.mem format=raw"` </br>
-​
-​
-`./linpmem -o memory.aff4`
-`./linpmem memory.aff4 -e PhysicalMemory -o memory.raw`
+​`./linpmem -o memory.aff4`  </br>
+`./linpmem memory.aff4 -e PhysicalMemory -o memory.raw`  </br>
 
 # Taking Image
 fdisk -l
@@ -47,8 +44,7 @@ Misc Useful Tools
 `cat ~/.bashrc `</br>
 
 
-# Environment and Startup Programs
-
+# Environment and Startup Programs  </br>
 `cat /etc/profile`</br>
 `ls /etc/profile.d/`</br>
 `cat /etc/profile.d/*`</br>
@@ -65,14 +61,13 @@ Misc Useful Tools
 `ls /home/*/.ssh/*`</br>
 `cat /home/*/.ssh/id_rsa.pub`</br>
 `cat /home/*/.ssh/authorized_keys`</br>
-# Sudoers File (who who can run commands as a different user)
+# Sudoers File (who who can run commands as a different user)  </br>
 `cat /etc/sudoers`</br>
 # Configuration Information
 `ls /etc/*.d`</br>
 `cat /etc/*.d/*`</br>
 
-# Network Connections / Socket Stats
-
+# Network Connections / Socket Stats  </br>
 `netstat`</br>
 `netstat -apetul`</br>
 `netstat -plan`</br>
@@ -98,7 +93,7 @@ Misc Useful Tools
 # Kernel Modules and Extensions/
 `ls -la /lib/modules/*/kernel/*`</br>
 
-# Process Information
+# Process Information  </br>
 `ps -s`</br>
 `ps -l`</br>
 `ps -o`</br>
@@ -108,8 +103,7 @@ Misc Useful Tools
 `top`</br>
 
 
-# Search files recursively in directory for keyword
-
+# Search files recursively in directory for keyword  </br>
 `grep -H -i -r "password" /`</br>
 `Process Tree`</br>
 `ps -auxwf`</br>
@@ -117,7 +111,7 @@ Misc Useful Tools
 `lsof`</br>
 `du`</br>
 
-# Pluggable Authentication Modules (PAM)
+# Pluggable Authentication Modules (PAM)  </br>
 `cat /etc/pam.d/sudo`</br>
 `cat /etc/pam.conf`</br>
 `ls /etc/pam.d/`</br>
@@ -130,22 +124,18 @@ Misc Useful Tools
 
 
 # Detailed Process Information
-
-`ls -al /proc/[PID]`
-Note:</br>
+`ls -al /proc/[PID]` </br>
 `CWD = Current Working Directory of Malware`</br>
 `EXE = Binary location and whether it has been deleted`</br>
 
-Most Common Timestamp = When process was created</br>
 
-Recover deleted binary which is currently running </br>
+# Recover deleted binary which is currently running </br>
 
 `cp /proc/[PID]/exe /[destination]/[binaryname]`
-# Capture Binary Data for Review
-
+# Capture Binary Data for Review  </br>
 `cp /proc/[PID]/ /[destination]/[PID]/`
 
-# Binary hash information
+# Binary hash information  </br>
 `sha1sum /[destination]/[binaryname]`</br>
 md5sum /[destination]/[binaryname] </br>
 
@@ -166,45 +156,47 @@ cat /proc/[PID]/maps
 Process stack/status information (may reveal useful elements)
 cat /proc/[PID]/stack
 cat /proc/[PID]/status
-Deleted binaries which are still running
-ls -alr /proc/*/exe 2> /dev/null |  grep deleted
-Process Working Directories (including common targeted directories)
-ls -alr /proc/*/cwd
-ls -alr /proc/*/cwd 2> /dev/null | grep tmp
-ls -alr /proc/*/cwd 2> /dev/null | grep dev
-ls -alr /proc/*/cwd 2> /dev/null | grep var
-ls -alr /proc/*/cwd 2> /dev/null | grep home
-Hidden Directories and Files
-find / -type d -name ".*"
-Immutable Files and Directories (Often Suspicious)
-lsattr / -R 2> /dev/null | grep "\----i"
-SUID/SGID and Sticky Bit Special Permissions
-find / -type f \( -perm -04000 -o -perm -02000 \) -exec ls -lg {} \;
-File and Directories with no user/group name
-find / \( -nouser -o -nogroup \) -exec ls -lg  {} \;
-File types in current directory
-file * -p
-Executables on file system
-find / -type f -exec file -p '{}' \; |  grep ELF
-Hidden Executables on file system
-find / -name ".*" -exec file -p '{}' \; | grep ELF
-Files modified within the past day
-find / -mtime -1
-Persistent Areas of Interest
-/etc/rc.local
-/etc/initd
-/etc/rc*.d
-/etc/modules
-/etc/cron*
-/var/spool/cron/*
-/usr/lib/cron/
-/usr/lib/cron/tabs
-Audit Logs
-ls -al /var/log/*
-ls -al /var/log/*tmp
-utmpdump /var/log/btmp
-utmpdump /var/run/utmp
-utmpdump /var/log/wtmp
-Installed Software Packages
-ls /usr/bin/
-ls /usr/local/bin/
+# Deleted binaries which are still running  </br>
+ls -alr /proc/*/exe 2> /dev/null |  grep deleted  </br>
+# Process Working Directories (including common targeted directories)  </br>
+`ls -alr /proc/*/cwd` </br>
+`ls -alr /proc/*/cwd 2> /dev/null | grep tmp` </br>
+`ls -alr /proc/*/cwd 2> /dev/null | grep dev` </br>
+`ls -alr /proc/*/cwd 2> /dev/null | grep var` </br>
+`ls -alr /proc/*/cwd 2> /dev/null | grep home` </br>
+# Hidden Directories and Files </br>
+`find / -type d -name ".*"` </br>
+# Immutable Files and Directories (Often Suspicious) </br>
+`lsattr / -R 2> /dev/null | grep "\----i"` </br>
+# SUID/SGID and Sticky Bit Special Permissions  </br>
+`find / -type f \( -perm -04000 -o -perm -02000 \) -exec ls -lg {} \;` </br>
+# File and Directories with no user/group name  </br>
+`find / \( -nouser -o -nogroup \) -exec ls -lg  {} \;`
+# File types in current directory  </br>
+`file * -p`
+# Executables on file system </br>
+`find / -type f -exec file -p '{}' \; |  grep ELF` </br>
+# Hidden Executables on file system </br>
+`find / -name ".*" -exec file -p '{}' \; | grep ELF`
+# Files modified within the past day </br>
+`find / -mtime -1`
+# Persistent Areas of Interest </br>
+`/etc/rc.local` </br>
+`/etc/initd` </br>
+`/etc/rc*.d` </br>
+`/etc/modules` </br>
+`/etc/cron*`</br>
+`/etc/cron*`</br>
+`/etc/cron*`</br>
+`/var/spool/cron/*`</br>
+`/usr/lib/cron/`</br>
+`/usr/lib/cron/tabs`</br>
+# Audit Logs </br>
+`ls -al /var/log/*`</br>
+`ls -al /var/log/*tmp`</br>
+`utmpdump /var/log/btmp`</br>
+`utmpdump /var/run/utmp`</br>
+`utmpdump /var/log/wtmp`</br>
+# Installed Software Packages </br>
+`ls /usr/bin/`</br>
+`ls /usr/local/bin/`</br>
