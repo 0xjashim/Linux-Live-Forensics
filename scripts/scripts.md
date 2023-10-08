@@ -6,8 +6,8 @@
 
 
 `dd if=/dev/kmem of=/root/kmem` </br>
-`dd if=/dev/mem of=/root/mem`
-​`sudo insmod ./lime.ko "path=./Linmen.mem format=raw"`
+`dd if=/dev/mem of=/root/mem` </br>
+​`sudo insmod ./lime.ko "path=./Linmen.mem format=raw"` </br>
 ​
 ​
 `./linpmem -o memory.aff4`
