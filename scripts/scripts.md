@@ -22,133 +22,138 @@ Misc Useful Tools
 
 # System Information
 
-`date`  
-`uname –a`  
-hostname
-cat /proc/version
-lsmod
-Account Information
-cat /etc/passwd
-cat /etc/shadow
-cat /etc/sudoers
-cat /etc/sudoers.d/*
-cut -d: -f1 /etc/passwd
-getent passwd | cut -d: -f1
-compgen -u
-Current user
-whoami
-who
-Last logged on users
-last
-lastb
-cat /var/log/auth.log
-Initialization Files
-cat /etc/bash.bashrc
-cat ~/.bash_profile 
-cat ~/.bashrc `
+`date` </br>  
+`uname –a`</br> 
+`hostname`</br>
+`cat /proc/version`</br>
+`lsmod`
+>Account Information
+`cat /etc/passwd` </br>
+`cat /etc/shadow`</br>
+`cat /etc/sudoers`</br>
+`cat /etc/sudoers.d/*`</br>
+`cut -d: -f1 /etc/passwd`</br>
+`getent passwd | cut -d: -f1`</br>
+`compgen -u`</br>
+# Current user
+`whoami`</br>
+`who`</br>
+# Last logged on users</br>
+`last`</br>
+`lastb`</br>
+`cat /var/log/auth.log`</br>
+# Initialization Files
+`cat /etc/bash.bashrc`</br>
+`cat ~/.bash_profile` </br>
+`cat ~/.bashrc `</br>
 
 
 # Environment and Startup Programs
 
-cat /etc/profile
-ls /etc/profile.d/
-cat /etc/profile.d/*
-Scheduled Tasks
-ls /etc/cron.*
-ls /etc/cron.*/*
-cat /etc/cron.*/*
-cat /etc/crontab
-SSH Keys and Authorized Users
-cat /etc/ssh/sshd_config
+`cat /etc/profile`</br>
+`ls /etc/profile.d/`</br>
+`cat /etc/profile.d/*`</br>
+# Scheduled Tasks
+`ls /etc/cron.*`</br>
+`ls /etc/cron.*/*`</br>
+`cat /etc/cron.*/*`</br>
+`cat /etc/crontab`</br>
+# SSH Keys and Authorized Users
+`cat /etc/ssh/sshd_config`</br>
 
 
 # Note: This specifies where the SSH daemon will look for keys. Generally this will be as below.
-ls /home/*/.ssh/*
-cat /home/*/.ssh/id_rsa.pub
-cat /home/*/.ssh/authorized_keys
-Sudoers File (who who can run commands as a different user)
-cat /etc/sudoers
-Configuration Information
-ls /etc/*.d
-cat /etc/*.d/*
+`ls /home/*/.ssh/*`</br>
+`cat /home/*/.ssh/id_rsa.pub`</br>
+`cat /home/*/.ssh/authorized_keys`</br>
+# Sudoers File (who who can run commands as a different user)
+`cat /etc/sudoers`</br>
+# Configuration Information
+`ls /etc/*.d`</br>
+`cat /etc/*.d/*`</br>
 
 # Network Connections / Socket Stats
 
-netstat
-netstat -apetul
-netstat -plan
-netstat -plant
-ss
-ss -l
-ss -ta
-ss -tp
-IP Table Information
-ls /etc/iptables
-cat /etc/iptables/*.v4
-cat /etc/iptables/*.v6
-iptables -L
+`netstat`</br>
+`netstat -apetul`</br>
+`netstat -plan`</br>
+`netstat -plant`</br>
+`ss`</br>
+`ss -l`</br>
+`ss -ta`</br>
+`ss -tp`</br>
+# IP Table Information
+`ls /etc/iptables`</br>
+`cat /etc/iptables/*.v4`</br>
+`cat /etc/iptables/*.v6`</br>
+`iptables -L`</br>
 
 # Network Configuration
-ifconfig -a
+`ifconfig -a`</br>
 
 # Browser Plugin Information
-ls -la ~/.mozilla/plugins
-ls -la /usr/lib/mozilla/plugins
-ls -la /usr/lib64/mozilla/plugins
-ls -la ~/.config/google-chrome/Default/Extensions/
-Kernel Modules and Extensions/
-ls -la /lib/modules/*/kernel/*
+`ls -la ~/.mozilla/plugins`</br>
+`ls -la /usr/lib/mozilla/plugins`</br>
+`ls -la /usr/lib64/mozilla/plugins`</br>
+`ls -la ~/.config/google-chrome/Default/Extensions/`</br>
+# Kernel Modules and Extensions/
+`ls -la /lib/modules/*/kernel/*`</br>
 
 # Process Information
-ps -s
-ps -l
-ps -o
-ps -t
-ps -m
-ps -a
-top
+`ps -s`</br>
+`ps -l`</br>
+`ps -o`</br>
+`ps -t`</br>
+`ps -m`</br>
+`ps -a`</br>
+`top`</br>
 
 
 # Search files recursively in directory for keyword
 
-grep -H -i -r "password" /
-Process Tree
-ps -auxwf
-Open Files and space usage
-lsof
-du
+`grep -H -i -r "password" /`</br>
+`Process Tree`</br>
+`ps -auxwf`</br>
+# Open Files and space usage
+`lsof`</br>
+`du`</br>
 
 # Pluggable Authentication Modules (PAM)
-cat /etc/pam.d/sudo
-cat /etc/pam.conf
-ls /etc/pam.d/
+`cat /etc/pam.d/sudo`</br>
+`cat /etc/pam.conf`</br>
+`ls /etc/pam.d/`</br>
 
 
 # Disk / Partition Information
-fdisk -l​
-strace -f -e trace=network -s 10000 <PROCESS WITH ARGUMENTS>;
-strace -f -e trace=network -s 10000 -p <PID>;
+`fdisk -l​`</br>
+`strace -f -e trace=network -s 10000 <PROCESS WITH ARGUMENTS>;`</br>
+`strace -f -e trace=network -s 10000 -p <PID>;`</br>
 
-# Note: Below material with thanks to 
-​
-Detailed Process Information
-ls -al /proc/[PID]
-Note:
-CWD = Current Working Directory of Malware
-EXE = Binary location and whether it has been deleted
 
-Most Common Timestamp = When process was created
+# Detailed Process Information
 
-Recover deleted binary which is currently running
-cp /proc/[PID]/exe /[destination]/[binaryname]
-Capture Binary Data for Review
-cp /proc/[PID]/ /[destination]/[PID]/
-Binary hash information
-sha1sum /[destination]/[binaryname]
-md5sum /[destination]/[binaryname]
-Process Command Line Information
-cat /proc/[PID]/cmdline
-cat /proc/[PID]/comm
+`ls -al /proc/[PID]`
+Note:</br>
+`CWD = Current Working Directory of Malware`</br>
+`EXE = Binary location and whether it has been deleted`</br>
+
+Most Common Timestamp = When process was created</br>
+
+Recover deleted binary which is currently running </br>
+
+`cp /proc/[PID]/exe /[destination]/[binaryname]`
+# Capture Binary Data for Review
+
+`cp /proc/[PID]/ /[destination]/[PID]/`
+
+# Binary hash information
+`sha1sum /[destination]/[binaryname]`</br>
+md5sum /[destination]/[binaryname] </br>
+
+# Process Command Line Information
+`cat /proc/[PID]/cmdline`</br>
+`cat /proc/[PID]/comm`</br>
+
 Note:
 
 Significant differences in the above 2 outputs and the specified binary name under /proc/[PID]/exe can be indicative of malicious software attempting to remain undetected.
