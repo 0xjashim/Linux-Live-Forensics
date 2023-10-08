@@ -20,14 +20,13 @@ Misc Useful Tools
 
 # Live Triage
 
-# System Information
-
+# System Information </br>
 `date` </br>  
 `uname –a`</br> 
 `hostname`</br>
 `cat /proc/version`</br>
 `lsmod`
->Account Information
+# Account Information
 `cat /etc/passwd` </br>
 `cat /etc/shadow`</br>
 `cat /etc/sudoers`</br>
