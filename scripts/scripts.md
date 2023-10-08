@@ -1,6 +1,10 @@
 Linux DFIR Commands
 
-Dumping Memory
+
+
+# Dumping Memory
+
+
 dd if=/dev/kmem of=/root/kmem
 dd if=/dev/mem of=/root/mem
 ​
@@ -14,15 +18,9 @@ Taking Image
 fdisk -l
 dd if=/dev/sda1 of=/[outputlocation]
 Misc Useful Tools
-​
-​
-python ./fastIR_collector_linux.py
-​
-​
-./linenum.sh
-./linenum.sh -t
 
-Live Triage
+# Live Triage
+
 System Information
 date
 uname –a
@@ -48,7 +46,10 @@ Initialization Files
 cat /etc/bash.bashrc
 cat ~/.bash_profile 
 cat ~/.bashrc 
-Environment and Startup Programs
+
+
+# Environment and Startup Programs
+
 cat /etc/profile
 ls /etc/profile.d/
 cat /etc/profile.d/*
@@ -59,7 +60,9 @@ cat /etc/cron.*/*
 cat /etc/crontab
 SSH Keys and Authorized Users
 cat /etc/ssh/sshd_config
-Note: This specifies where the SSH daemon will look for keys. Generally this will be as below.
+
+
+# Note: This specifies where the SSH daemon will look for keys. Generally this will be as below.
 ls /home/*/.ssh/*
 cat /home/*/.ssh/id_rsa.pub
 cat /home/*/.ssh/authorized_keys
@@ -68,7 +71,9 @@ cat /etc/sudoers
 Configuration Information
 ls /etc/*.d
 cat /etc/*.d/*
-Network Connections / Socket Stats
+
+# Network Connections / Socket Stats
+
 netstat
 netstat -apetul
 netstat -plan
@@ -82,16 +87,19 @@ ls /etc/iptables
 cat /etc/iptables/*.v4
 cat /etc/iptables/*.v6
 iptables -L
-Network Configuration
+
+# Network Configuration
 ifconfig -a
-Browser Plugin Information
+
+# Browser Plugin Information
 ls -la ~/.mozilla/plugins
 ls -la /usr/lib/mozilla/plugins
 ls -la /usr/lib64/mozilla/plugins
 ls -la ~/.config/google-chrome/Default/Extensions/
 Kernel Modules and Extensions/
 ls -la /lib/modules/*/kernel/*
-Process Information
+
+# Process Information
 ps -s
 ps -l
 ps -o
@@ -99,24 +107,29 @@ ps -t
 ps -m
 ps -a
 top
-Search files recursively in directory for keyword
+
+
+# Search files recursively in directory for keyword
+
 grep -H -i -r "password" /
 Process Tree
 ps -auxwf
 Open Files and space usage
 lsof
 du
-Pluggable Authentication Modules (PAM)
+
+# Pluggable Authentication Modules (PAM)
 cat /etc/pam.d/sudo
 cat /etc/pam.conf
 ls /etc/pam.d/
-Disk / Partition Information
-fdisk -l
-​
-​
+
+
+# Disk / Partition Information
+fdisk -l​
 strace -f -e trace=network -s 10000 <PROCESS WITH ARGUMENTS>;
 strace -f -e trace=network -s 10000 -p <PID>;
-Note: Below material with thanks to 
+
+# Note: Below material with thanks to 
 ​
 Detailed Process Information
 ls -al /proc/[PID]
@@ -124,7 +137,7 @@ Note:
 CWD = Current Working Directory of Malware
 EXE = Binary location and whether it has been deleted
 
-    Most Common Timestamp = When process was created
+Most Common Timestamp = When process was created
 
 Recover deleted binary which is currently running
 cp /proc/[PID]/exe /[destination]/[binaryname]
@@ -138,7 +151,7 @@ cat /proc/[PID]/cmdline
 cat /proc/[PID]/comm
 Note:
 
-    Significant differences in the above 2 outputs and the specified binary name under /proc/[PID]/exe can be indicative of malicious software attempting to remain undetected.
+Significant differences in the above 2 outputs and the specified binary name under /proc/[PID]/exe can be indicative of malicious software attempting to remain undetected.
 
 Process Environment Variables (incl user who ran binary)
 strings /proc/[PID]/environ
