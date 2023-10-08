@@ -22,8 +22,8 @@ Misc Useful Tools
 
 # System Information
 
-`date`
-`uname –a`
+`date`  
+`uname –a`  
 hostname
 cat /proc/version
 lsmod
