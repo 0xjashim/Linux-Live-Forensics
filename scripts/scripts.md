@@ -7,22 +7,22 @@
 
 `dd if=/dev/kmem of=/root/kmem`
 `dd if=/dev/mem of=/root/mem`
+​`sudo insmod ./lime.ko "path=./Linmen.mem format=raw"`
 ​
 ​
-sudo insmod ./lime.ko "path=./Linmen.mem format=raw"
-​
-​
-./linpmem -o memory.aff4
-./linpmem memory.aff4 -e PhysicalMemory -o memory.raw
-Taking Image
+`./linpmem -o memory.aff4`
+`./linpmem memory.aff4 -e PhysicalMemory -o memory.raw`
+
+# Taking Image
 fdisk -l
 dd if=/dev/sda1 of=/[outputlocation]
 Misc Useful Tools
 
 # Live Triage
 
-System Information
-date
+# System Information
+
+`date
 uname –a
 hostname
 cat /proc/version
@@ -45,7 +45,7 @@ cat /var/log/auth.log
 Initialization Files
 cat /etc/bash.bashrc
 cat ~/.bash_profile 
-cat ~/.bashrc 
+cat ~/.bashrc `
 
 
 # Environment and Startup Programs
